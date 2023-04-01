@@ -19,8 +19,22 @@ class Circle:
     def get_radius(self):
         return self.radius
 
+class Validator():
+    def is_valid_radius(radius):
+        radius = float(radius)
+        if radius >= 0:
+            return True
+        else:
+            return False
+
 print("Welcome to Circle Tester.")
-radius = input("Enter a radius. ")
+while True:
+    radius = input("Enter a radius: ")
+    if Validator.is_valid_radius(radius):
+        radius = float(radius)
+        break
+    else:
+        print("Invalid input. Please enter a valid number.")
 circle = Circle(radius)
 print(f"Diameter:", circle.calculate_diameter())
 print(f"Circumference:", circle.calculate_circumference())
@@ -33,6 +47,6 @@ while True:
         print(f"Diameter:", circle.calculate_diameter())
         print(f"Circumference:", circle.calculate_circumference())
         print(f"Area:", circle.calculate_area())
-    if response == "n":
+    elif response == "n":
         print("Goodbye!")
         break
